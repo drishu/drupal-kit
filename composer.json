@@ -1,54 +1,59 @@
 {
-  "name": "drishu/drupal-kit",
-  "description": "A kit for working with drupal contributed modules.",
-  "type": "drupal-module",
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "require": {
-    "php": ">=7.3",
-    "drupal/core": "^8.9 || ^9.1",
-    "wikimedia/composer-merge-plugin": "^2.0"
-  },
-  "require-dev": {
-    "composer/installers": "~1.11",
-    "drupal/core-composer-scaffold": "^8.9 || ^9.1",
-    "drush/drush": "^10.3",
-    "phpspec/prophecy-phpunit": "^1 || ^2"
-  },
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "https://packages.drupal.org/8"
-    }
-  ],
-  "extra": {
-    "composer-exit-on-patch-failure": true,
-    "enable-patching": true,
-    "installer-paths": {
-      "build/core": ["type:drupal-core"],
-      "build/profiles/contrib/{$name}": ["type:drupal-profile"],
-      "build/modules/contrib/{$name}": ["type:drupal-module"],
-      "build/themes/contrib/{$name}": ["type:drupal-theme"]
+    "name": "drishu/drupal-kit",
+    "description": "A kit for working with drupal contributed modules.",
+    "type": "drupal-module",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=7.3",
+        "drupal/core": "^8.9 || ^9.1",
+        "wikimedia/composer-merge-plugin": "^2.0"
     },
-    "drupal-scaffold": {
-      "locations": {
-        "web-root": "./build"
-      }
+    "require-dev": {
+        "composer/installers": "~1.11",
+        "drupal/core-composer-scaffold": "^8.9 || ^9.1",
+        "drush/drush": "^10.3",
+        "phpspec/prophecy-phpunit": "^1 || ^2"
     },
-    "merge-plugin": {
-      "include": [
-          "project/*/composer.json"
-      ],
-      "recurse": true,
-      "replace": false,
-      "ignore-duplicates": false,
-      "merge-dev": true,
-      "merge-extra": false,
-      "merge-extra-deep": false,
-      "merge-scripts": false
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    ],
+    "scripts": {
+        "post-install-cmd": [
+            "mkdir build/modules/custom"
+        ]
+    },
+    "extra": {
+        "composer-exit-on-patch-failure": true,
+        "enable-patching": true,
+        "installer-paths": {
+            "build/core": ["type:drupal-core"],
+            "build/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "build/modules/contrib/{$name}": ["type:drupal-module"],
+            "build/themes/contrib/{$name}": ["type:drupal-theme"]
+        },
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "./build"
+            }
+        },
+        "merge-plugin": {
+            "include": [
+                "project/*/composer.json"
+            ],
+            "recurse": true,
+            "replace": false,
+            "ignore-duplicates": false,
+            "merge-dev": true,
+            "merge-extra": false,
+            "merge-extra-deep": false,
+            "merge-scripts": false
+        }
+    },
+    "config": {
+        "sort-packages": true
     }
-  },
-  "config": {
-    "sort-packages": true
-  }
 }
