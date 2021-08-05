@@ -5,8 +5,9 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
+    "php": ">=7.3",
     "drupal/core": "^8.9 || ^9.1",
-    "php": ">=7.3"
+    "wikimedia/composer-merge-plugin": "^2.0"
   },
   "require-dev": {
     "composer/installers": "~1.11",
@@ -33,6 +34,18 @@
       "locations": {
         "web-root": "./build"
       }
+    },
+    "merge-plugin": {
+      "include": [
+          "project/*/composer.json"
+      ],
+      "recurse": true,
+      "replace": false,
+      "ignore-duplicates": false,
+      "merge-dev": true,
+      "merge-extra": false,
+      "merge-extra-deep": false,
+      "merge-scripts": false
     }
   },
   "config": {
