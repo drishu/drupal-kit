@@ -23,7 +23,7 @@
     ],
     "scripts": {
         "post-install-cmd": [
-            "mkdir build/modules/custom"
+            "mkdir -p build/modules/custom"
         ]
     },
     "extra": {
