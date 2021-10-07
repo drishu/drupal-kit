@@ -6,6 +6,7 @@
     "prefer-stable": true,
     "require": {
         "php": ">=7.3",
+        "behat/behat": "^3.8",
         "drupal/core": "^8.9 || ^9.1",
         "wikimedia/composer-merge-plugin": "^2.0"
     },
